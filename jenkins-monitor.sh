@@ -1,8 +1,11 @@
 #!/bin/bash
 PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:~/bin
 export PATH
-c=$(ps -ef | grep "java -jar agent.jar"|grep -v grep | wc -l)
+c=$(systemctl status jenkins-slave | grep "java -jar agent.jar"|grep -v grep | wc -l)
 if [ $c -eq 0 ];then
-  service jenkins-slave restart
-  echo "Finished: service jenkins-slave restarted"
+  echo "Restarting service jenkins-slave"
+  systemctl stop jenkins-slave
+  sleep 2s
+  systemctl start jenkins-slave
+  echo "Finished restarting service jenkins-slave"
 fi
