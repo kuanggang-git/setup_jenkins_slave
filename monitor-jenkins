@@ -3,4 +3,4 @@ PATH=/sbin:/bin:/usr/sbin:/usr/bin
 MAILTO=root
 HOME=/
 
-*/1 * * * * root sh /home/sgx/kg/setup_jenkins_slave/jenkins-monitor.sh >> /tmp/jenkins-slave.log 2>&1
+*/1 * * * * root sh /home/.jenkins_slave/setup_jenkins_slave/jenkins-monitor.sh >> /tmp/jenkins-slave.log 2>&1
