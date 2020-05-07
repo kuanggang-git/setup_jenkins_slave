@@ -9,4 +9,5 @@ sleep 5s
 /etc/init.d/jenkins-slave start
 chmod 644 monitor-jenkins
 cp monitor-jenkins /etc/cron.d/
-systemctl restart crond
+[ -f /usr/sbin/crond ] && systemctl restart crond
+[ -f /usr/sbin/cron ] && systemctl restart cron
