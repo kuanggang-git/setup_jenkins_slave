@@ -36,9 +36,9 @@ start()
     cd $JENKINS_WORKDIR
     [ -f agent.jar ] || download_jar
         echo -n $"Starting Jenkins Slave: "
-        su sgx -c "java -jar agent.jar \
+        sudo -u sgx java -jar agent.jar \
                -jnlpUrl $JENKINS_URL/computer/$JENKINS_NODENAME/slave-agent.jnlp -secret $JENKINS_SECRET \
-               >slave.log 2>&1 &"
+               >slave.log 2>&1 &
         echo "[OK]".
 }
 
