@@ -6,7 +6,9 @@
 # description:  Enable this node
 
 # Source function library.
-. /etc/rc.d/init.d/functions
+[ -f /etc/rc.d/init.d/functions ] && . /etc/rc.d/init.d/functions
+[ -f /lib/lsb/init-functions ] && . /lib/lsb/init-functions
+
 # Source environment varibales : PATH etc
 . /etc/profile
 
